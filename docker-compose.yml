@@ -9,9 +9,12 @@ services:
     depends_on:
       - db
     environment:
-      - DATABASE_URL=jdbc:mysql://db:3306/traccar
-      - DATABASE_USER=root
-      - DATABASE_PASSWORD=root
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_USER=traccar
+      - DB_PASSWORD=traccar
+    networks:
+      - traccar_network
 
   db:
     image: mysql:8
@@ -26,6 +29,12 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+    networks:
+      - traccar_network
 
 volumes:
   mysql_data:
+
+networks:
+  traccar_network:
+    driver: bridge
