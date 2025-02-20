@@ -18,4 +18,3 @@ WORKDIR /app
 COPY --from=build /app /app
 
 CMD ["java", "-jar", "/app/target/tracker-server.jar", "/app/conf/traccar.xml"]
-
