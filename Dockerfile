@@ -1,4 +1,4 @@
-FROM openjdk:17-alpine AS build
+FROM openjdk:17-slim AS build
 
 WORKDIR /app
 
@@ -6,7 +6,7 @@ COPY . /app
 
 RUN ./gradlew assemble
 
-FROM openjdk:17-alpine
+FROM openjdk:17-slim
 
 ENV DB_HOST=db
 ENV DB_PORT=3306
