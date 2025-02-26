@@ -23,7 +23,7 @@ Install dependencies and build:
 
 Run:
 ```bash
-java -jar target/tracker-server.jar 
+java -jar target/tracker-server.jar conf/traccar.xml
 ```
 
 ## Requirements

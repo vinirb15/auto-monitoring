@@ -6,8 +6,11 @@ COPY . /app
 
 RUN ./gradlew assemble
 
-FROM openjdk:17-slim
+FROM alpine:3.21
 
+RUN apk add --no-cache openjdk17 gettext
+
+ENV TRACCAR_VERSION=6.6
 ENV DB_HOST=db
 ENV DB_PORT=3306
 ENV DB_USER=traccar
@@ -17,4 +20,10 @@ WORKDIR /app
 
 COPY --from=build /app /app
 
-CMD ["java", "-jar", "/app/target/tracker-server.jar", "/app/conf/traccar.xml"]
+COPY conf/traccar.xml.template /app/conf/traccar.xml.template
+COPY entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
+
+EXPOSE 8082
+
+ENTRYPOINT ["/app/entrypoint.sh"]
