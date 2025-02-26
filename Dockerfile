@@ -19,8 +19,6 @@ ENV DB_PASSWORD=traccar
 WORKDIR /app
 
 COPY --from=build /app /app
-COPY conf/traccar.xml.template /app/conf/traccar.xml.template
-COPY entrypoint.sh /app/entrypoint.sh
 
 RUN chmod +x /app/entrypoint.sh
 
