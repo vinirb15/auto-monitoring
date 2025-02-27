@@ -1,6 +1,10 @@
 #!/bin/sh
 set -e
 
+ls -l conf/
+
+chmod 777 /app/conf/default.xml
+
 envsubst < conf/default.xml > conf/traccar.xml
 
 chmod 644 conf/traccar.xml
