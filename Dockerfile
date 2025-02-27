@@ -10,7 +10,6 @@ FROM alpine:3.21
 
 RUN apk add --no-cache openjdk17 gettext
 
-ENV TRACCAR_VERSION=6.6
 ENV DB_HOST=db
 ENV DB_PORT=3306
 ENV DB_USER=traccar
