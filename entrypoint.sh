@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-envsubst < /app/conf/traccar.xml.template > /app/conf/traccar.xml
+envsubst < /app/conf/default.xml > /app/conf/traccar.xml
 
 chmod 644 /app/conf/traccar.xml
 
