@@ -1,8 +1,8 @@
 #!/bin/sh
 set -e
 
-envsubst < /app/conf/default.xml > /app/conf/traccar.xml
+envsubst < conf/default.xml > conf/traccar.xml
 
-chmod 644 /app/conf/traccar.xml
+chmod 644 conf/traccar.xml
 
-exec java -Xms1g -Xmx1g -Djava.net.preferIPv4Stack=true -jar /app/target/tracker-server.jar /app/conf/traccar.xml
+exec java -Xms1g -Xmx1g -Djava.net.preferIPv4Stack=true -jar target/tracker-server.jar conf/traccar.xml
